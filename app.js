@@ -15,6 +15,7 @@ io.on("connection" , function(socket)
 {
     console.log("connected")
     socket.on("send-location" , function(data){
+        // console.log(data);
         io.emit("recive-location" , {id: socket.id , ...data});
     });
 

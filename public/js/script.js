@@ -4,6 +4,7 @@ if(navigator.geolocation)
 {
     navigator.geolocation.watchPosition((possition) => {
            const { latitude ,longitude} = possition.coords;
+           console.log(' latitude ,longitude: ',  latitude ,longitude);
            socket.emit("send-location" , {latitude , longitude});
     },(error) => {
         console.log(error , "while getting location");
@@ -11,7 +12,7 @@ if(navigator.geolocation)
     {
         enableHighAccuracy: true,
         maximumAge: 0,
-        timeout: 5000
+        timeout: 2000
     });
 }
 
