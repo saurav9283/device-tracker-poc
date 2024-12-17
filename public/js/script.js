@@ -34,3 +34,11 @@ socket.on("recive-location" , function(data){
         marker[id] = L.marker([latitude , longitude]).addTo(map);
     }
 });
+
+socket.on("user-disconnected" , (id)=>{
+    if(marker[id])
+    {
+        map.removeLayer(marker[id]);
+        delete marker[id];
+    }
+});
